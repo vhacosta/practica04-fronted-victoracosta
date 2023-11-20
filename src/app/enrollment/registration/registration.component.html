@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2>Nueva Inscripción</h2>
+  <form (ngSubmit)="saveEnrollment()" #enrollmentForm="ngForm">
+    <div class="form-group">
+      <label for="course">Curso:</label>
+      <select id="course" name="courseId" [(ngModel)]="enrollment.course.id" class="form-control" required>
+        <option *ngFor="let course of courses" [value]="course.name">{{ course.name }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="student">Estudiante:</label>
+      <select id="student" name="studentId" [(ngModel)]="enrollment.student.id" class="form-control" required>
+        <option *ngFor="let student of students" [value]="student.name">{{ student.name }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="pay">Pagado:</label>
+      <input type="checkbox" id="pay" name="pay" [(ngModel)]="enrollment.pay" class="form-check-input">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a routerLink="/enrollments" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>

@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h2>Lista de Matriculas</h2>
+  <br>
+  <a routerLink="/enrollments/create" class="btn btn-primary">Agregar Matricula</a>
+  <br>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Student</th>
+      <th>Course</th>
+      <th>Pay</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let enrollment of enrollments">
+      <td>{{ enrollment.id }}</td>
+      <td>{{ enrollment.student.name }}</td>
+      <td>{{ enrollment.course.name }}</td>
+      <td>{{ enrollment.pay ? 'Yes' : 'No' }}</td>
+      <td>
+        <a [routerLink]="['/enrollments/payment', enrollment.id]" class="btn btn-success mx-2">Pagar</a>
+        <button class="btn btn-danger m-2" (click)="deleteEnrollment(enrollment.id)">Eliminar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

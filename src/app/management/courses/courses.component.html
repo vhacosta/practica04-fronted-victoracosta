@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <h2>Lista de Cursos</h2>
+  <br>
+  <a routerLink="/courses/create" class="btn btn-primary">Agregar Curso</a>
+  <br>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Código</th>
+      <th>Descripción</th>
+      <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let course of courses">
+      <td>{{ course.id }}</td>
+      <td>{{ course.name }}</td>
+      <td>{{ course.code }}</td>
+      <td>{{ course.description }}</td>
+      <td>
+        <a [routerLink]="['/courses/edit', course.id]" class="btn btn-success mx-2">Editar</a>
+        <button type="button" class="btn btn-danger" (click)="deleteCourse(course.id)">Eliminar</button>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>

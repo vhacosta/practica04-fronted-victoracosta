@@ -1,0 +1,29 @@
+<div class="container mt-4">
+    <h2>Payment Details</h2>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Enrollment Information</h5>
+            <p class="card-text">ID: {{ enrollment!.id }}</p>
+            <p class="card-text">Course: {{ enrollment!.course.name }}</p>
+            <p class="card-text">Student: {{ enrollment!.student.name }}</p>
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" [(ngModel)]="cardNumber" class="form-control" required>
+    </div>
+
+    <div class="mt-3">
+        <label for="cardExpiry">Card Expiry:</label>
+        <input type="text" id="cardExpiry" [(ngModel)]="cardExpiry" class="form-control" required>
+    </div>
+
+    <div class="mt-3">
+        <label for="cardCvc">Card CVC:</label>
+        <input type="text" id="cardCvc" [(ngModel)]="cardCvc" class="form-control" required>
+    </div>
+
+    <button type="button" class="btn btn-primary mt-3" (click)="payEnrollment()">Pay Enrollment</button>
+    <a routerLink="/enrollments" class="btn btn-secondary mt-3">Back to Enrollments</a>
+</div>
